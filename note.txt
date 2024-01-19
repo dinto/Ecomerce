@@ -5,6 +5,12 @@ settings:
 
     in template:
         'DIRS':[os.path.join(BASE_DIR,'templates')],
+    STATIC_ROOT= os.path.join(BASE_DIR,'static')
+    STATICFILES_DIRS= [os.path.join(BASE_DIR,'staticfiles')]
+    MEDIA_URL='/media/'
+    MEDIA_ROOT = os.path.join(BASE_DIR,"media")
+
+create folder name : templates,static,media
 
 
 
