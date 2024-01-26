@@ -6,6 +6,7 @@ from django.contrib.auth.models import Group
 from django.contrib.auth.decorators import login_required,user_passes_test
 from django.contrib import messages
 from django.conf import settings
+from django.contrib.auth import authenticate,login,logout
 
 def home_view(request):
     products=models.Product.objects.all()
@@ -179,6 +180,11 @@ def delete_order_view(request,pk):
     order=models.Orders.objects.get(id=pk)
     order.delete()
     return redirect('admin-view-booking')
+
+
+def LogoutPage(request):
+    logout(request)
+    return redirect('customerlogin')
 
 # for changing status of order (pending,delivered...)
 @login_required(login_url='adminlogin')
